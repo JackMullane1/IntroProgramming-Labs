@@ -5,5 +5,6 @@ def main():
     adj = input("Enter an adjective: ")
 
     print(noun, verb, place, adj)
-    
+
+
 main()
