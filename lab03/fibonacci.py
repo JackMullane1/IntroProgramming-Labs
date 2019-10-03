@@ -1,3 +1,5 @@
+# A program used to compute a user given number for the term in the fobonnaci
+# sequence.
 def main():
     num = int(input("Enter a number for the fibonnaci sequence: "))
     result = fibonacci(num)
