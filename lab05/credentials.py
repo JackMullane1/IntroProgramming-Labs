@@ -5,26 +5,37 @@
 
 
 def main():
-    # get user's first and last names
+    userN = maristUname(names())
+    passW = password()
+    print(
+        '''Congratulations, you have created a new Marist account!
+        Your new email is:''', userN, "\n")
+    print("Keep this password a secret: ", passW, "\n")
+
+def names():
+    print("\n")
     first = input("Enter your first name: ")
+    print("\n")
     last = input("Enter your last name: ")
+    print("\n")
+    fullName = [first, last]
+    return fullName
 
-    # generate a Marist-style password
-    uname = str(first + "." + last + "1")
+def maristUname(fullName):
+    uName = str(fullName[0] + "." + fullName[1] + "1@marist.edu")
+    return uName
 
-    # ask user to create a new password
+def password():
     passwd = input("Create a new password: ")
-
-    # ensure the password has at least 8 characters
+    print("\n") 
     while len(passwd) < 8:
-        print("Fool of a Took! That password is feeble!")
+        print("Fool of a Took! That password is feeble!\n")
         passwd = input("Create a better password: ")
+        print("\n")
     else:
         print("The force is strong in this one...")
-        print(
-            "Account configured. Your new email address is",
-            uname + "@marist.edu")
-        return True
+        print("\n")
+        return passwd
 
 
 main()
