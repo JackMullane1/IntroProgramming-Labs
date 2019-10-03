@@ -1,3 +1,4 @@
+# A program to compute pi based on a math sequence, takes user's input.
 import math
 
 
