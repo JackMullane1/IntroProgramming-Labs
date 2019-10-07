@@ -1,5 +1,10 @@
-# A program used to compute a user given number for the term in the fobonnaci
-# sequence.
+# CMPT 120
+# Lab 3: A program used to compute a user given number for the term in the 
+# fibonnaci sequence.
+# Jack Mullane
+# 10/7/2019
+
+
 def main():
     num = int(input("Enter a number for the fibonnaci sequence: "))
     result = fibonacci(num)
