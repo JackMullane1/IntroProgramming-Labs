@@ -1,4 +1,9 @@
-# A guessing game made with a loop and conditional statements.
+# CMPT 120
+# Lab 4: A guessing game made with a loop and conditional statements.
+# Jack Mullane
+# 10/7/2019
+
+
 def main():
     animal = "cat"
     guess = input("Try to guess what animal I'm thinking of: ").lower()
