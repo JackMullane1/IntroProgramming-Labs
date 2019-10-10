@@ -3,6 +3,8 @@
 # Author: Jack Mullane
 # Created: 2019-10-03
 
+import re
+
 
 def names():
     print("\n")
@@ -27,10 +29,27 @@ def password():
 
 def passStrength(password):
     passFilter = password
-    while len(passFilter) < 8:
-        print("Fool of a Took! That password is feeble!\n")
-        passFilter = input("Create a better password: ")
+    lenCheck = len(password) < 8
+    numCheck = re.search("[0-9]", password) is None
+    upCheck = re.search("[A-Z]", password) is None
+    lowCheck = re.search("[a-z]", password) is None
+    passCheck = not (lenCheck or numCheck or upCheck or lowCheck)
+    if passCheck is False:
+        print("Fool of a took! Your password is feeble!")
         print("\n")
+        if lenCheck is True:
+            passFilter = input("Your password needs at least 8 characters: ")
+            print("\n")
+        elif numCheck is True:
+            passFilter = input("Your password needs numbers: ")
+            print("\n")
+        elif upCheck is True:
+            passFilter = input("Your password needs uppercase characters: ")
+            print("\n")
+        elif lowCheck is True:
+            passFilter = input("Your password needs lowercase characters: ")
+            print("\n")
+        return passStrength(passFilter)
     else:
         print("The force is strong in this one...")
         print("\n")
@@ -41,7 +60,7 @@ def main():
     userName = maristUname(names())
     userPass = password()
     print(
-        '''Congratulations, you have created a new Marist account!
+        '''Congratulations, you have created a new Marist account!\n
         Your new email is:''', userName, "\n")
     print("Keep this password a secret: ", userPass, "\n")
 
