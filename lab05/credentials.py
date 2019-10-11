@@ -17,7 +17,7 @@ def names():
 
 
 def maristUname(names):
-    uName = str(names[0] + "." + names[1] + "1@marist.edu")
+    uName = str(names[0] + "." + names[1] + "@marist.edu")
     return uName
 
 
@@ -57,12 +57,27 @@ def passStrength(password):
 
 
 def main():
-    userName = maristUname(names())
-    userPass = password()
-    print(
-        '''Congratulations, you have created a new Marist account!\n
-        Your new email is:''', userName, "\n")
-    print("Keep this password a secret: ", userPass, "\n")
+    userList = []
+    userNum = 0
+    stop = ""
+    while stop != "e":
+        userName = maristUname(names())
+        userList.append(userName)
+        userCount = userList.count(userName)
+        index = userName.find("@")
+        userNum += 1
+        countedName = userName[:index] + str(userCount) + userName[index:]
+        userPass = password()
+        print(
+            '''Congratulations, you have created a new Marist account!\n
+Your new email is:''', countedName, "\n")
+        print("Keep this password a secret: ", userPass, "\n")
+        stop = input(
+            '''Type E to exit the user generator or press Enter to
+proceed: ''').lower()
+        print("\n")
+    else:
+        print("Congratulations! You generated", userNum, "email(s).", "\n")
 
 
 main()
